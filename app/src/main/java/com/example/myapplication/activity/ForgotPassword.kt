@@ -93,7 +93,7 @@ class ForgotPassword : AppCompatActivity() {
 
     private fun sendNotification() {
         val builder=NotificationCompat.Builder(this,id)
-        builder.setSmallIcon(R.mipmap.ic_launcher_round)
+        builder.setSmallIcon(R.mipmap.ic_launcher_foreground)
         builder.setContentTitle("The OTP for changing password ")
         otpValidate=otp.toString()
         builder.setContentText(otpValidate)

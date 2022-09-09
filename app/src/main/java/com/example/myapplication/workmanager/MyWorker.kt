@@ -29,7 +29,7 @@ class MyWorker(context: Context,workerParameters: WorkerParameters):Worker(conte
         }
         val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, 0)
         val builder = NotificationCompat.Builder(applicationContext, id)
-            .setSmallIcon(R.mipmap.ic_launcher_round)
+            .setSmallIcon(R.mipmap.ic_launcher_foreground)
             .setContentTitle("The Work Scheduler ")
             .setContentText("Success")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
