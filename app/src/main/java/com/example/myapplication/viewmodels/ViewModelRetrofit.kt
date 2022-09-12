@@ -8,25 +8,27 @@ import com.example.myapplication.apiinterface.ApiInterface
 import com.example.myapplication.dataclass.DataItem
 import com.example.myapplication.instance.RetrofitInstance
 import com.example.myapplication.adaptor.RvAdapter
+import com.example.myapplication.data.UserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
 class ViewModelRetrofit : ViewModel() {
- // val contextActivity=context
+
      private lateinit  var data:MutableLiveData<List<DataItem>>
     private lateinit var recyclerViewAdaptor: RvAdapter
 
 
 init {
+
     data= MutableLiveData()
     recyclerViewAdaptor= RvAdapter()
+
 }
 
-    fun setAdaptor(arr:ArrayList<String>){
-
-        recyclerViewAdaptor.setDataList(arr)
+    fun setAdaptor(arr: ArrayList<String>, tag: List<UserData>){
+        recyclerViewAdaptor.setDataList(arr,tag)
         recyclerViewAdaptor.notifyDataSetChanged()
     }
     fun getAdaptor(): RvAdapter {
@@ -37,7 +39,7 @@ init {
         GlobalScope.launch(Dispatchers.IO) {
             try {
 
-       //retrofit.deleteData(delete)
+
 
             }catch (e:Exception){
                 Log.e("TAG",e.message.toString())

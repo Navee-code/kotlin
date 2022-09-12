@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.adaptor.RvAdapter
+import com.example.myapplication.data.UserDataBase
 import com.example.myapplication.storage.SharedPrefer
 import com.example.myapplication.viewmodels.ViewModelRetrofit
 import com.example.myapplication.viewmodels.ViewModelRetrofitImage
@@ -22,6 +24,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 import kotlin.collections.ArrayList
 
@@ -33,11 +39,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressBar:ProgressBar
     private lateinit var viewModel: ViewModelRetrofit
     private lateinit var viewModel2: ViewModelRetrofitImage
+    private lateinit var userDataBase:UserDataBase
+    private lateinit var recyclerViewAdaptor: RvAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_main)
+         userDataBase= UserDataBase.getDatabase(this)
+
 
             progressBar = findViewById(R.id.progress_retrofit)
             viewModel2=ViewModelProvider(this).get(ViewModelRetrofitImage::class.java)
@@ -57,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                     imageData.add(item.download_url)
                 }
             }
+
             
             viewModel2.setAdaptor(imageData)
 
@@ -81,9 +92,19 @@ class MainActivity : AppCompatActivity() {
                     data.add(item.body)
                 }
             }
+            GlobalScope.launch(Dispatchers.IO){
+                val tag=userDataBase.userDao().readAllData()
+                withContext (Dispatchers.Main) {
 
-            viewModel.setAdaptor(data)
-            progressBar.visibility = View.INVISIBLE
+                    viewModel.setAdaptor(data,tag)
+                    progressBar.visibility = View.INVISIBLE
+            }
+            }
+
+
+
+
+
 
         })
         viewModel.apiCall()

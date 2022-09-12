@@ -15,7 +15,7 @@
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.11875" />
         <entry key="app/src/main/res/layout/activity_body_message.xml" value="0.14270833333333333" />
         <entry key="app/src/main/res/layout/activity_create_todo_list.xml" value="0.15833333333333333" />
-        <entry key="app/src/main/res/layout/activity_create_todo_task.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/activity_create_todo_task.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />

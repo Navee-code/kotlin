@@ -36,8 +36,11 @@ class ViewModelRetrofitImage :ViewModel(){
             try {
 
                 val result = retrofit.getData()
+
                 if (result.body() != null) {
+
                     data.postValue(result.body())
+
 
 
                 }

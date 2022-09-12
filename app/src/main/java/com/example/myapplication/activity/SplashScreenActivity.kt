@@ -39,12 +39,12 @@ class SplashScreenActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         val google= GoogleSignIn.getLastSignedInAccount(this)
         if(google!=null){
-            Toast.makeText(this,"Google log in", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"Google log in", Toast.LENGTH_SHORT).show()
            // finish()
             startActivity(intent)
 
         }else if(share.sharedGetBoolean(this)){
-            Toast.makeText(this,"Real time log in", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"Real time log in", Toast.LENGTH_SHORT).show()
            // finish()
 
 
@@ -54,7 +54,7 @@ class SplashScreenActivity : AppCompatActivity() {
            // finish()
             startActivity(intent)
         }
-        },2500)
+        },2000)
         super.onStart()
     }
 }

@@ -74,14 +74,14 @@ class LoginActivity : AppCompatActivity() {
                                         snapshot.child(userName).child("Password").value
 
                                     if (passwordFromServer == password) {
-                                        Log.e("Share before login",share.sharedGetBoolean(applicationContext).toString())
+                                       // Log.e("Share before login",share.sharedGetBoolean(applicationContext).toString())
                                         share.sharedSetBoolean(true, applicationContext)
 
                                         finish()
                                         val intent =
                                             Intent(applicationContext, MainActivity::class.java)
                                         startActivity(intent)
-                                        Log.e("Share After login",share.sharedGetBoolean(applicationContext).toString())
+                                       // Log.e("Share After login",share.sharedGetBoolean(applicationContext).toString())
 
                                         progressBar.visibility = View.INVISIBLE
                                     } else {
@@ -203,16 +203,14 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         val google= GoogleSignIn.getLastSignedInAccount(this)
         if(google!=null){
-            Toast.makeText(this,"Google log in",Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,"Google log in",Toast.LENGTH_SHORT).show()
             finish()
             startActivity(intent)
 
         }else if(share.sharedGetBoolean(this)){
-            Toast.makeText(this,"Real time log in",Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(this,"Real time log in",Toast.LENGTH_SHORT).show()
             finish()
             startActivity(intent)
-        }else{
-            Toast.makeText(this,"No user sign in",Toast.LENGTH_SHORT).show()
         }
         super.onStart()
     }

@@ -1,7 +1,6 @@
 package com.example.myapplication.adaptor
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,19 +9,31 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.activity.BodyMessage
 import com.example.myapplication.R
-import com.example.myapplication.viewmodels.ViewModelRetrofit
+import com.example.myapplication.data.UserData
+import com.example.myapplication.data.UserDataBase
 
 class RvAdapter :RecyclerView.Adapter<RvAdapter.ViewHolder>(){
 
-
-
+    private lateinit var userDataBase: UserDataBase
+   // private lateinit var room: DataSetGetRoom
     var list1=ArrayList<String>()
 
 
-    fun setDataList(list2:ArrayList<String>){
+    init {
+
+    }
+
+
+    fun setDataList(list2: ArrayList<String>, tag: List<UserData>){
+
+                for(it in tag){
+                    list1.add(it.note.toString())
+
+                }
         for (item in list2){
             list1.add(item)
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,6 +62,9 @@ class RvAdapter :RecyclerView.Adapter<RvAdapter.ViewHolder>(){
 
        return list1.size
     }
+
+
+
     inner class ViewHolder(itemVIew: View):RecyclerView.ViewHolder(itemVIew){
          var text1= itemVIew.findViewById<TextView>(R.id.todo_text)
         var context= itemVIew.context

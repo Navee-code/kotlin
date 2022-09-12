@@ -15,7 +15,7 @@
             android:id="@+id/todo_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the Time to schedule notification "
+            android:hint="Create a short Notes"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -35,5 +35,16 @@
         android:background="@drawable/round_button"
         android:onClick="worLog"
         android:text="@string/create" />
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/round_button"
+        android:onClick="delete"
+        android:text="Delete ALL" />
+
+
 
 </LinearLayout>
