@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.R
 import com.example.myapplication.storage.SharedPrefer
@@ -18,9 +20,17 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         val splash=findViewById<ImageView>(R.id.splash_image)
-
+        val textSplash=findViewById<TextView>(R.id.textSplash)
+         textSplash.visibility=View.INVISIBLE
         splash.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_fade_in))
+        handler.postDelayed({
+            splash.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.move))
+        },900)
+        handler.postDelayed({
 
+            textSplash.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_fade_in))
+            textSplash.visibility=View.VISIBLE
+        },1200)
     }
 
     override fun onStart() {
@@ -44,7 +54,7 @@ class SplashScreenActivity : AppCompatActivity() {
            // finish()
             startActivity(intent)
         }
-        },1200)
+        },2500)
         super.onStart()
     }
 }
