@@ -23,7 +23,6 @@ class RvAdapter :RecyclerView.Adapter<RvAdapter.ViewHolder>(){
 
     }
 
-
     fun setDataList(list2: ArrayList<String>, tag: List<UserData>){
 
                 for(it in tag){

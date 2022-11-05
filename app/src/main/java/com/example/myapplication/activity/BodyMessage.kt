@@ -16,7 +16,6 @@ class BodyMessage : AppCompatActivity() {
         message.text=body
     }
 
-
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.nothing, R.anim.bottom_down);

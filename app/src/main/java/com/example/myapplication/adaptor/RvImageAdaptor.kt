@@ -27,7 +27,7 @@ class RvImageAdaptor :RecyclerView.Adapter<RvImageAdaptor.ImageViewHolder>(){
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.progressBar.visibility=View.INVISIBLE
-    Glide.with(holder.context)
+        Glide.with(holder.context)
         .load(list2.get(position))
         .apply(RequestOptions.circleCropTransform())
         .placeholder(R.drawable.kotlin_splash)

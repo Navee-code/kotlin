@@ -101,11 +101,6 @@ class MainActivity : AppCompatActivity() {
             }
             }
 
-
-
-
-
-
         })
         viewModel.apiCall()
         recyclerView()

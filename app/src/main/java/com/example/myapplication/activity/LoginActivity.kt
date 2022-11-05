@@ -3,6 +3,8 @@ package com.example.myapplication.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -145,6 +147,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(a)
         super.onBackPressed()
     }
+
 
     fun go(){
         val  gso=GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
